@@ -14,6 +14,8 @@
 		8429C9DF1EAECD2C004A5E2B /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9DE1EAECD2C004A5E2B /* NoteViewController.swift */; };
 		8429C9E21EAECD34004A5E2B /* TestApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9E01EAECD34004A5E2B /* TestApp.xcdatamodeld */; };
 		8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9E31EAECD48004A5E2B /* NoteModel.swift */; };
+		BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2C2106A41600FB87CA /* DataSource.swift */; };
+		BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		8429C9DE1EAECD2C004A5E2B /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		8429C9E11EAECD34004A5E2B /* TestApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestApp.xcdatamodel; sourceTree = "<group>"; };
 		8429C9E31EAECD48004A5E2B /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		BAF03B2C2106A41600FB87CA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +64,6 @@
 			children = (
 				8429C9DB1EAECD0B004A5E2B /* Controller */,
 				8429C9DC1EAECD0B004A5E2B /* Model */,
-				8429C9DD1EAECD0B004A5E2B /* View */,
 				8429C9C61EAECCA8004A5E2B /* AppDelegate.swift */,
 				8429C9CA1EAECCA8004A5E2B /* Main.storyboard */,
 				8429C9D01EAECCA8004A5E2B /* Assets.xcassets */,
@@ -81,17 +84,28 @@
 		8429C9DC1EAECD0B004A5E2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BAF03B302106A48100FB87CA /* Entities */,
+				BAF03B2B2106A40200FB87CA /* Repositories */,
 				8429C9E01EAECD34004A5E2B /* TestApp.xcdatamodeld */,
-				8429C9E31EAECD48004A5E2B /* NoteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		8429C9DD1EAECD0B004A5E2B /* View */ = {
+		BAF03B2B2106A40200FB87CA /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				BAF03B2C2106A41600FB87CA /* DataSource.swift */,
+				BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */,
 			);
-			path = View;
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		BAF03B302106A48100FB87CA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8429C9E31EAECD48004A5E2B /* NoteModel.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,7 +184,9 @@
 				8429C9DF1EAECD2C004A5E2B /* NoteViewController.swift in Sources */,
 				8429C9E21EAECD34004A5E2B /* TestApp.xcdatamodeld in Sources */,
 				8429C9C71EAECCA8004A5E2B /* AppDelegate.swift in Sources */,
+				BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */,
 				8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */,
+				BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +356,7 @@
 				8429C9DA1EAECCA8004A5E2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

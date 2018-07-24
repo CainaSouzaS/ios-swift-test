@@ -6,6 +6,7 @@
 
 import Foundation
 
-class NoteModel {
-    
+struct NoteModel {
+    var note: String
+    var createdAt: Date
 }
