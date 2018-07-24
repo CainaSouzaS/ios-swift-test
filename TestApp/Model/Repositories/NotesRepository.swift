@@ -12,33 +12,19 @@ class NotesRepository: DataSource {
     // All notes available
     lazy var items: [NoteModel] = []
     
+    // Private variables
+    private let notesService = NotesService()
+    
     /**
      * Fetches dummy notes asynchronously.
      *
      * - parameter completion: A closure indicating the completion of the operation
      */
-    public func fetchNotes(_ completion: @escaping () -> Void) {
+    public func fetchDummyNotes(_ completion: @escaping () -> Void) {
         // Generate a list of dummy notes
-        items = generateDummyNotes()
+        items = notesService.generateDummyNotes()
         
         // Operation finished. Indicate its completion to the closure.
         completion()
     }
-}
-
-// MARK: PRIVATE
-
-extension NotesRepository {
-    
-    /**
-     * Generates a list of dummy notes.
-     *
-     * - returns: An array of NoteModel objects.
-     */
-    fileprivate func generateDummyNotes() -> [NoteModel] {
-        let note = NoteModel(note: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at porttitor nibh. In nec metus et orci rhoncus congue. Praesent augue eros, eleifend in lobortis in, convallis sed nibh.", createdAt: Date())
-        
-        return Array(repeating: note, count: 10)
-    }
-    
 }

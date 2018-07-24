@@ -16,6 +16,13 @@
 		8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9E31EAECD48004A5E2B /* NoteModel.swift */; };
 		BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2C2106A41600FB87CA /* DataSource.swift */; };
 		BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */; };
+		BAF03B342106B07100FB87CA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B332106B07100FB87CA /* NoteCell.swift */; };
+		BAF03B362106B0DD00FB87CA /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B352106B0DD00FB87CA /* ReusableView.swift */; };
+		BAF03B382106B12200FB87CA /* NibLoadableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B372106B12200FB87CA /* NibLoadableView.swift */; };
+		BAF03B3A2106B15100FB87CA /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAF03B392106B15100FB87CA /* NoteCell.xib */; };
+		BAF03B3C2106B2A300FB87CA /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B3B2106B2A300FB87CA /* NotesController.swift */; };
+		BAF03B3F2106B30E00FB87CA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B3E2106B30E00FB87CA /* UITableView.swift */; };
+		BAF03B422106B7F800FB87CA /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B412106B7F800FB87CA /* NotesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +37,13 @@
 		8429C9E31EAECD48004A5E2B /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		BAF03B2C2106A41600FB87CA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
+		BAF03B332106B07100FB87CA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
+		BAF03B352106B0DD00FB87CA /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		BAF03B372106B12200FB87CA /* NibLoadableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadableView.swift; sourceTree = "<group>"; };
+		BAF03B392106B15100FB87CA /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
+		BAF03B3B2106B2A300FB87CA /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
+		BAF03B3E2106B30E00FB87CA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		BAF03B412106B7F800FB87CA /* NotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +76,11 @@
 		8429C9C51EAECCA8004A5E2B /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				8429C9DB1EAECD0B004A5E2B /* Controller */,
 				8429C9DC1EAECD0B004A5E2B /* Model */,
+				BAF03B312106B05C00FB87CA /* View */,
+				8429C9DB1EAECD0B004A5E2B /* Controller */,
+				BAF03B402106B7E200FB87CA /* Services */,
+				BAF03B3D2106B30500FB87CA /* Extensions */,
 				8429C9C61EAECCA8004A5E2B /* AppDelegate.swift */,
 				8429C9CA1EAECCA8004A5E2B /* Main.storyboard */,
 				8429C9D01EAECCA8004A5E2B /* Assets.xcassets */,
@@ -76,6 +93,7 @@
 		8429C9DB1EAECD0B004A5E2B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BAF03B3B2106B2A300FB87CA /* NotesController.swift */,
 				8429C9DE1EAECD2C004A5E2B /* NoteViewController.swift */,
 			);
 			path = Controller;
@@ -106,6 +124,41 @@
 				8429C9E31EAECD48004A5E2B /* NoteModel.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		BAF03B312106B05C00FB87CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BAF03B352106B0DD00FB87CA /* ReusableView.swift */,
+				BAF03B372106B12200FB87CA /* NibLoadableView.swift */,
+				BAF03B322106B06700FB87CA /* Cells */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BAF03B322106B06700FB87CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAF03B332106B07100FB87CA /* NoteCell.swift */,
+				BAF03B392106B15100FB87CA /* NoteCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BAF03B3D2106B30500FB87CA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BAF03B3E2106B30E00FB87CA /* UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BAF03B402106B7E200FB87CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BAF03B412106B7F800FB87CA /* NotesService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +224,7 @@
 				8429C9D41EAECCA8004A5E2B /* LaunchScreen.storyboard in Resources */,
 				8429C9D11EAECCA8004A5E2B /* Assets.xcassets in Resources */,
 				8429C9CC1EAECCA8004A5E2B /* Main.storyboard in Resources */,
+				BAF03B3A2106B15100FB87CA /* NoteCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,8 +238,14 @@
 				8429C9DF1EAECD2C004A5E2B /* NoteViewController.swift in Sources */,
 				8429C9E21EAECD34004A5E2B /* TestApp.xcdatamodeld in Sources */,
 				8429C9C71EAECCA8004A5E2B /* AppDelegate.swift in Sources */,
+				BAF03B422106B7F800FB87CA /* NotesService.swift in Sources */,
+				BAF03B382106B12200FB87CA /* NibLoadableView.swift in Sources */,
+				BAF03B362106B0DD00FB87CA /* ReusableView.swift in Sources */,
+				BAF03B3C2106B2A300FB87CA /* NotesController.swift in Sources */,
 				BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */,
+				BAF03B3F2106B30E00FB87CA /* UITableView.swift in Sources */,
 				8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */,
+				BAF03B342106B07100FB87CA /* NoteCell.swift in Sources */,
 				BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
