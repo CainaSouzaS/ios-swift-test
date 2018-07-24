@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="clQ-qA-PTE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notes-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="NotesController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7a6-Oc-ux4">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZ3-Jq-A1J">
+                                <rect key="frame" x="309" y="601" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.93333333333333335" green="0.42745098039215684" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0NV-N1-ffE"/>
+                                    <constraint firstAttribute="width" constant="50" id="ywZ-cp-bSK"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="AddSmallWhite">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createNoteWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MwC-QV-KS4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7a6-Oc-ux4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="N5g-Ng-19u"/>
+                            <constraint firstItem="7a6-Oc-ux4" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="Wgd-jY-5Jf"/>
+                            <constraint firstItem="0MH-KO-z7n" firstAttribute="trailing" secondItem="TZ3-Jq-A1J" secondAttribute="trailing" constant="16" id="gKM-6X-fst"/>
+                            <constraint firstItem="7a6-Oc-ux4" firstAttribute="leading" secondItem="0MH-KO-z7n" secondAttribute="leading" id="i8V-5l-teV"/>
+                            <constraint firstItem="7a6-Oc-ux4" firstAttribute="trailing" secondItem="0MH-KO-z7n" secondAttribute="trailing" id="iif-3e-wKw"/>
+                            <constraint firstItem="0MH-KO-z7n" firstAttribute="bottom" secondItem="TZ3-Jq-A1J" secondAttribute="bottom" constant="16" id="vzn-Wg-xxz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0MH-KO-z7n"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="9ol-0X-yZY"/>
+                    <connections>
+                        <outlet property="addButton" destination="TZ3-Jq-A1J" id="au2-Gr-oOx"/>
+                        <outlet property="tableView" destination="7a6-Oc-ux4" id="2wc-i1-sSh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="784.79999999999995" y="-665.21739130434787"/>
+        </scene>
+        <!--Note Controller-->
+        <scene sceneID="teQ-Sw-yEb">
+            <objects>
+                <viewController storyboardIdentifier="NoteController" id="57C-ak-1qE" customClass="NoteController" customModule="TestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m9h-Nf-llU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DpR-Yd-uvf" userLabel="Close Button">
+                                <rect key="frame" x="309" y="601" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MZy-BC-3dW"/>
+                                    <constraint firstAttribute="width" constant="50" id="WuG-2y-9Lj"/>
+                                </constraints>
+                                <color key="tintColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="AddSmallOrange">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeNoteWithSender:" destination="57C-ak-1qE" eventType="touchUpInside" id="tvl-aA-hhx"/>
+                                    <action selector="createNoteWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKe-LK-Iyt"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-cR-dMw">
+                                <rect key="frame" x="16" y="28" width="343" height="565"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.050000000000000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="57C-ak-1qE" id="i28-os-fq6"/>
+                                </connections>
+                            </textView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWO-HU-GY1">
+                                <rect key="frame" x="16" y="601" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ibw-Y7-HD0"/>
+                                    <constraint firstAttribute="width" constant="50" id="fTx-bt-mzt"/>
+                                </constraints>
+                                <color key="tintColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="CheckmarkOrange">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveNoteWithSender:" destination="57C-ak-1qE" eventType="touchUpInside" id="jDT-OJ-oDX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="DpR-Yd-uvf" firstAttribute="top" secondItem="h9q-cR-dMw" secondAttribute="bottom" constant="8" id="Dep-HY-ch2"/>
+                            <constraint firstItem="h9q-cR-dMw" firstAttribute="leading" secondItem="4Ch-8E-AC3" secondAttribute="leading" constant="16" id="FVS-lu-rIH"/>
+                            <constraint firstItem="xWO-HU-GY1" firstAttribute="top" secondItem="h9q-cR-dMw" secondAttribute="bottom" constant="8" id="OJ7-SU-zsT"/>
+                            <constraint firstItem="h9q-cR-dMw" firstAttribute="top" secondItem="4Ch-8E-AC3" secondAttribute="top" constant="8" id="RRb-qt-8P8"/>
+                            <constraint firstItem="xWO-HU-GY1" firstAttribute="leading" secondItem="4Ch-8E-AC3" secondAttribute="leading" constant="16" id="Y1Q-L5-uz5"/>
+                            <constraint firstItem="4Ch-8E-AC3" firstAttribute="trailing" secondItem="DpR-Yd-uvf" secondAttribute="trailing" constant="16" id="beE-a3-r70"/>
+                            <constraint firstItem="4Ch-8E-AC3" firstAttribute="trailing" secondItem="h9q-cR-dMw" secondAttribute="trailing" constant="16" id="rW5-ww-PFW"/>
+                            <constraint firstItem="4Ch-8E-AC3" firstAttribute="bottom" secondItem="DpR-Yd-uvf" secondAttribute="bottom" constant="16" id="xtY-lO-1Fh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Ch-8E-AC3"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="IQLayoutGuideConstraint" destination="xtY-lO-1Fh" id="1bQ-Oc-zOH"/>
+                        <outlet property="closeButton" destination="DpR-Yd-uvf" id="eSv-Is-joL"/>
+                        <outlet property="contentTextView" destination="h9q-cR-dMw" id="OW8-Fa-zGS"/>
+                        <outlet property="saveButton" destination="xWO-HU-GY1" id="U4f-uA-FS7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bTj-ld-C94" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1592.8" y="-665.21739130434787"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LFv-2M-V46">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="clQ-qA-PTE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="idd-Fg-G6D">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2ij-20-fVH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6nl-XW-FoR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="45.600000000000001" y="-665.21739130434787"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AddSmallOrange" width="22" height="22"/>
+        <image name="AddSmallWhite" width="22" height="22"/>
+        <image name="CheckmarkOrange" width="22" height="22"/>
+    </resources>
+</document>
