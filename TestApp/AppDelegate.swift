@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().shouldResignOnTouchOutside = true
         
+        // Initialize NotesRepository with
+        NotesRepository.shared.configure(with: persistentContainer.viewContext)
+        
         return true
     }
 

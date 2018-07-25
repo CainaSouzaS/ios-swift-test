@@ -40,47 +40,64 @@ class NotesController: UIViewController {
 extension NotesController {
     
     @IBAction func createNote(sender: UIButton) {
-        // Create and present the controller to create/edit a note
-        guard let noteController = controller(for: .note, from: .main) as? NoteController else { return }
-        noteController.transitioningDelegate = self
-        noteController.modalPresentationStyle = .custom
-        noteController.delegate = self
-        
-        transition.startingPoint = sender.center
-        transition.circleColor = sender.backgroundColor ?? .white
-        
-        present(noteController, animated: true, completion: nil)
+        createOrPresentNote(nil)
     }
+    
 }
 
 // MARK: PRIVATE
 
 extension NotesController {
     
-    /*
+    /**
      * Configure all UI elements
      */
     fileprivate func configureUI() {
         // Configure table view
         tableView.register(NoteCell.self)
         tableView.dataSource = self
+        tableView.delegate = self
         
         // Configure add button
         addButton.layer.cornerRadius = addButton.frame.width / 2
+        
     }
     
-    /*
+    /**
+     * Present NoteController with or without an existing note.
+     */
+    fileprivate func createOrPresentNote(_ note: Note?) {
+        // Create and present the controller to create/edit a note
+        guard let noteController = controller(for: .note, from: .main) as? NoteController else { return }
+        noteController.transitioningDelegate = self
+        noteController.modalPresentationStyle = .custom
+        noteController.delegate = self
+        noteController.note = note
+        
+        transition.startingPoint = addButton.center
+        transition.circleColor = addButton
+            .backgroundColor ?? .white
+        
+        present(noteController, animated: true, completion: nil)
+    }
+    
+    /**
      * Retrieves a list of dummy notes.
      */
     fileprivate func fetchDummyNotes() {
         // Request notes from repository
-        NotesRepository.shared.fetchDummyNotes { [weak self] _ in
+        NotesRepository.shared.fetchNotes { [weak self] error in
+            guard error == nil else {
+                self?.alert(title: "Something went wrong", message: error?.localizedDescription ?? "Unable to fetch notes.")
+                return
+            }
+            
             // Operation finished. Reload data.
             self?.tableView.reloadData()
         }
     }
     
-    /*
+    /**
      * Retrieves a list of notes from the repository and reload the table view.
      */
     fileprivate func fetchNotes() {
@@ -92,7 +109,7 @@ extension NotesController {
     }
     
     /**
-     * Filters a list of NoteModel objects containing a certain term.
+     * Filters a list of Note objects containing a certain term.
      *
      * - parameter text: The term used to filter the list of notes.
      */
@@ -101,6 +118,13 @@ extension NotesController {
             // Operation finished. Reload data.
             self?.tableView.reloadData()
         }
+    }
+    
+    fileprivate func presentNoteDetails(_ note: Note) {
+        guard let noteController = controller(for: .note, from: .main) as? NoteController else { return }
+        noteController.note = note
+        
+        
     }
     
 }
@@ -130,6 +154,9 @@ extension NotesController: UITableViewDelegate {
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function)
+        let note = NotesRepository.shared.item(at: indexPath.row)
+        
+        createOrPresentNote(note)
     }
     
 }

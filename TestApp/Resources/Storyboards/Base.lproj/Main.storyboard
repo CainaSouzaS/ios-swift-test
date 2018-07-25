@@ -53,7 +53,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="createNoteWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MwC-QV-KS4"/>
+                                    <action selector="createNoteWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EDa-cN-HeH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,15 +127,32 @@
                                     <action selector="saveNoteWithSender:" destination="57C-ak-1qE" eventType="touchUpInside" id="jDT-OJ-oDX"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaD-Vd-OSZ">
+                                <rect key="frame" x="162.5" y="601" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="EMV-0z-OFG"/>
+                                    <constraint firstAttribute="height" constant="50" id="p0n-wZ-Ew2"/>
+                                </constraints>
+                                <color key="tintColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Trash">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteNoteWithSender:" destination="57C-ak-1qE" eventType="touchUpInside" id="Lmu-Wv-Kc6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.42745098040000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="FaD-Vd-OSZ" firstAttribute="centerX" secondItem="h9q-cR-dMw" secondAttribute="centerX" id="C4e-o5-2UI"/>
                             <constraint firstItem="DpR-Yd-uvf" firstAttribute="top" secondItem="h9q-cR-dMw" secondAttribute="bottom" constant="8" id="Dep-HY-ch2"/>
                             <constraint firstItem="h9q-cR-dMw" firstAttribute="leading" secondItem="4Ch-8E-AC3" secondAttribute="leading" constant="16" id="FVS-lu-rIH"/>
                             <constraint firstItem="xWO-HU-GY1" firstAttribute="top" secondItem="h9q-cR-dMw" secondAttribute="bottom" constant="8" id="OJ7-SU-zsT"/>
                             <constraint firstItem="h9q-cR-dMw" firstAttribute="top" secondItem="4Ch-8E-AC3" secondAttribute="top" constant="8" id="RRb-qt-8P8"/>
                             <constraint firstItem="xWO-HU-GY1" firstAttribute="leading" secondItem="4Ch-8E-AC3" secondAttribute="leading" constant="16" id="Y1Q-L5-uz5"/>
                             <constraint firstItem="4Ch-8E-AC3" firstAttribute="trailing" secondItem="DpR-Yd-uvf" secondAttribute="trailing" constant="16" id="beE-a3-r70"/>
+                            <constraint firstItem="FaD-Vd-OSZ" firstAttribute="top" secondItem="h9q-cR-dMw" secondAttribute="bottom" constant="8" id="nQh-Vw-sn8"/>
                             <constraint firstItem="4Ch-8E-AC3" firstAttribute="trailing" secondItem="h9q-cR-dMw" secondAttribute="trailing" constant="16" id="rW5-ww-PFW"/>
                             <constraint firstItem="4Ch-8E-AC3" firstAttribute="bottom" secondItem="DpR-Yd-uvf" secondAttribute="bottom" constant="16" id="xtY-lO-1Fh"/>
                         </constraints>
@@ -146,6 +163,7 @@
                         <outlet property="IQLayoutGuideConstraint" destination="xtY-lO-1Fh" id="1bQ-Oc-zOH"/>
                         <outlet property="closeButton" destination="DpR-Yd-uvf" id="eSv-Is-joL"/>
                         <outlet property="contentTextView" destination="h9q-cR-dMw" id="OW8-Fa-zGS"/>
+                        <outlet property="deleteButton" destination="FaD-Vd-OSZ" id="l9J-9n-fGu"/>
                         <outlet property="saveButton" destination="xWO-HU-GY1" id="U4f-uA-FS7"/>
                     </connections>
                 </viewController>
@@ -177,5 +195,6 @@
         <image name="AddSmallOrange" width="22" height="22"/>
         <image name="AddSmallWhite" width="22" height="22"/>
         <image name="CheckmarkOrange" width="22" height="22"/>
+        <image name="Trash" width="26" height="26"/>
     </resources>
 </document>

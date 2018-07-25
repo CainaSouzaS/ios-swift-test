@@ -14,7 +14,8 @@
 		8429C9D41EAECCA8004A5E2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429C9D21EAECCA8004A5E2B /* LaunchScreen.storyboard */; };
 		8429C9DF1EAECD2C004A5E2B /* NoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9DE1EAECD2C004A5E2B /* NoteController.swift */; };
 		8429C9E21EAECD34004A5E2B /* TestApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9E01EAECD34004A5E2B /* TestApp.xcdatamodeld */; };
-		8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429C9E31EAECD48004A5E2B /* NoteModel.swift */; };
+		BAAFADAE21081C4A000F217E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAFADAC21081C4A000F217E /* Note.swift */; };
+		BAAFADB121082C2A000F217E /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAFADB021082C2A000F217E /* UIViewController.swift */; };
 		BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2C2106A41600FB87CA /* DataSource.swift */; };
 		BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */; };
 		BAF03B342106B07100FB87CA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B332106B07100FB87CA /* NoteCell.swift */; };
@@ -23,7 +24,6 @@
 		BAF03B3A2106B15100FB87CA /* NoteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BAF03B392106B15100FB87CA /* NoteCell.xib */; };
 		BAF03B3C2106B2A300FB87CA /* NotesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B3B2106B2A300FB87CA /* NotesController.swift */; };
 		BAF03B3F2106B30E00FB87CA /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B3E2106B30E00FB87CA /* UITableView.swift */; };
-		BAF03B422106B7F800FB87CA /* NotesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B412106B7F800FB87CA /* NotesService.swift */; };
 		BAF03B452106BA0F00FB87CA /* ACCircleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B442106BA0F00FB87CA /* ACCircleTransition.swift */; };
 		BAF03B472106BABA00FB87CA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B462106BABA00FB87CA /* Router.swift */; };
 		BAF03B4C2106C18C00FB87CA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF03B4B2106C18C00FB87CA /* UIView.swift */; };
@@ -39,7 +39,8 @@
 		8429C9D51EAECCA8004A5E2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8429C9DE1EAECD2C004A5E2B /* NoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteController.swift; sourceTree = "<group>"; };
 		8429C9E11EAECD34004A5E2B /* TestApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TestApp.xcdatamodel; sourceTree = "<group>"; };
-		8429C9E31EAECD48004A5E2B /* NoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		BAAFADAC21081C4A000F217E /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Note.swift; path = "/Users/cainasouza/Documents/Alaya/ios-swift-test/TestApp/Model/Entities/Note.swift"; sourceTree = "<absolute>"; };
+		BAAFADB021082C2A000F217E /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		BAF03B2C2106A41600FB87CA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		BAF03B2E2106A44C00FB87CA /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
 		BAF03B332106B07100FB87CA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		BAF03B392106B15100FB87CA /* NoteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteCell.xib; sourceTree = "<group>"; };
 		BAF03B3B2106B2A300FB87CA /* NotesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesController.swift; sourceTree = "<group>"; };
 		BAF03B3E2106B30E00FB87CA /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		BAF03B412106B7F800FB87CA /* NotesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesService.swift; sourceTree = "<group>"; };
 		BAF03B442106BA0F00FB87CA /* ACCircleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ACCircleTransition.swift; sourceTree = "<group>"; };
 		BAF03B462106BABA00FB87CA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		BAF03B4B2106C18C00FB87CA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -101,7 +101,6 @@
 				8429C9DC1EAECD0B004A5E2B /* Model */,
 				BAF03B312106B05C00FB87CA /* View */,
 				8429C9DB1EAECD0B004A5E2B /* Controller */,
-				BAF03B402106B7E200FB87CA /* Services */,
 				BAF03B432106B9F400FB87CA /* Navigation */,
 				BAF03B3D2106B30500FB87CA /* Extensions */,
 				BAF03B482106BDC300FB87CA /* Resources */,
@@ -142,7 +141,7 @@
 		BAF03B302106A48100FB87CA /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				8429C9E31EAECD48004A5E2B /* NoteModel.swift */,
+				BAAFADAC21081C4A000F217E /* Note.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -171,16 +170,9 @@
 			children = (
 				BAF03B3E2106B30E00FB87CA /* UITableView.swift */,
 				BAF03B4B2106C18C00FB87CA /* UIView.swift */,
+				BAAFADB021082C2A000F217E /* UIViewController.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		BAF03B402106B7E200FB87CA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				BAF03B412106B7F800FB87CA /* NotesService.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		BAF03B432106B9F400FB87CA /* Navigation */ = {
@@ -360,18 +352,18 @@
 				8429C9DF1EAECD2C004A5E2B /* NoteController.swift in Sources */,
 				8429C9E21EAECD34004A5E2B /* TestApp.xcdatamodeld in Sources */,
 				8429C9C71EAECCA8004A5E2B /* AppDelegate.swift in Sources */,
-				BAF03B422106B7F800FB87CA /* NotesService.swift in Sources */,
+				BAAFADAE21081C4A000F217E /* Note.swift in Sources */,
 				BAF03B382106B12200FB87CA /* NibLoadableView.swift in Sources */,
 				BAF03B362106B0DD00FB87CA /* ReusableView.swift in Sources */,
 				BAF03B3C2106B2A300FB87CA /* NotesController.swift in Sources */,
 				BAF03B2D2106A41600FB87CA /* DataSource.swift in Sources */,
 				BAF03B3F2106B30E00FB87CA /* UITableView.swift in Sources */,
-				8429C9E41EAECD48004A5E2B /* NoteModel.swift in Sources */,
 				BAF03B4C2106C18C00FB87CA /* UIView.swift in Sources */,
 				BAF03B472106BABA00FB87CA /* Router.swift in Sources */,
 				BAF03B452106BA0F00FB87CA /* ACCircleTransition.swift in Sources */,
 				BAF03B342106B07100FB87CA /* NoteCell.swift in Sources */,
 				BAF03B2F2106A44C00FB87CA /* NotesRepository.swift in Sources */,
+				BAAFADB121082C2A000F217E /* UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,64 +7,158 @@
 //
 
 import Foundation
+import CoreData
 
 class NotesRepository: DataSource {
     static let shared = NotesRepository()
     
     // All notes available
-    lazy var items: [NoteModel] = []
+    lazy var items: [Note] = []
     
     // Keeps a copy of original items array whenever a search is started
-    private var unfilteredItems: [NoteModel] = []
+    private var unfilteredItems: [Note] = []
     
-    // Private variables
-    private let notesService = NotesService()
+    // Core Data context
+    private(set) var context: NSManagedObjectContext?
+    
+    /**
+     * Configures this repository with the context used to persist objects.
+     *
+     * - parameter context: A NSManagedObjectContext object used by the application to manage local storage.
+     */
+    public func configure(with context: NSManagedObjectContext) {
+        self.context = context
+    }
     
     /**
      * Fetches dummy notes asynchronously.
      *
      * - parameter completion: A closure indicating the completion of the operation
      */
-    public func fetchDummyNotes(_ completion: @escaping () -> Void) {
-        // Generate a list of dummy notes
-        items = notesService.generateDummyNotes()
-        
-        // Keep a copy of original values for filtering purposes
-        unfilteredItems = items
-        
-        // Operation finished. Indicate its completion to the closure.
-        completion()
-    }
+//    public func fetchDummyNotes(_ completion: @escaping () -> Void) {
+//        // Generate a list of dummy notes
+//        items = notesService.generateDummyNotes()
+//        
+//        // Keep a copy of original values for filtering purposes
+//        unfilteredItems = items
+//        
+//        // Operation finished. Indicate its completion to the closure.
+//        completion()
+//    }
     
     /**
      * Fetches notes asynchronously.
      *
      * - parameter completion: A closure indicating the completion of the operation.
      */
-    public func fetchNotes(_ completion: @escaping () -> Void) {
-        // TODO Retrieve list of notes
+    public func fetchNotes(_ completion: @escaping (Error?) -> Void) {
+        guard let context = self.context else {
+            // FIXME Should return an error instead
+            completion(nil)
+            return
+        }
         
-        // Operation finished. Indicate its completion to the closure.
-        completion()
+        let notesFetchRequest = NSFetchRequest<Note>(entityName: String(describing: Note.classForCoder()))
+        // FIXME Get the key from somewhere else
+        notesFetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
+        
+        do {
+            items = try context.fetch(notesFetchRequest)
+            
+            // Keep a copy of original values for filtering purposes
+            unfilteredItems = items
+            
+            // Operation finished. Indicate its completion to the closure.
+            completion(nil)
+        } catch {
+            // Operation failed. Indicate its completion to the closure.
+            completion(error)
+        }
+        
     }
     
     /**
-     * Creates a new note asynchronously.
+     * Creates a new note.
      *
      * - parameter content: The string content of the note.
      * - parameter completion: A closure indicating the completion of the operation.
      */
-    public func saveNote(content: String, _ completion: @escaping () -> Void) {
-        let note = NoteModel(note: content, createdAt: Date())
+    public func saveNote(content: String, _ completion: @escaping (Error?) -> Void) {
+        guard let context = self.context else {
+            // FIXME Should return an error instead
+            completion(nil)
+            return
+        }
         
-        items.append(note)
-        items.sort { $0.createdAt > $1.createdAt}
+        let note = Note(context: context)
+        note.content = content
+        note.createdAt = NSDate()
         
-        // Keep a copy of original values for filtering purposes
-        unfilteredItems = items
+        do {
+            try context.save()
+            
+            // Operation finished. Indicate its completion to the closure.
+            completion(nil)
+        } catch {
+            // Operation failed. Indicate its completion to the closure.
+            completion(error)
+        }
+    }
+    
+    /**
+     * Updates a note.
+     *
+     * - parameter note: The Note to be updated.
+     * - parameter content: The String content of the note.
+     * - parameter completion: A closure indicating the completion of the operation.
+     */
+    public func update(note: Note, content: String, _ completion: @escaping (Error?) -> Void) {
+        guard let context = self.context else {
+            // FIXME Should return an error instead
+            completion(nil)
+            return
+        }
         
-        // Operation finished. Indicate its completion to the closure.
-        completion()
+        // Update its content
+        note.content = content
+        
+        do {
+            try context.save()
+            
+            // Operation finished. Indicate its completion to the closure.
+            completion(nil)
+        } catch {
+            // Operation failed. Indicate its completion to the closure.
+            completion(error)
+        }
+    }
+    
+    /**
+     * Deletes a note.
+     *
+     * - parameter note: The Note to be deleted.
+     * - parameter completion: A closure indicating the completion of the operation.
+     */
+    public func delete(note: Note, _ completion: @escaping (Error?) -> Void) {
+        guard let context = self.context else {
+            // FIXME Should return an error instead
+            completion(nil)
+            return
+        }
+        
+        // Delete object
+        context.delete(note)
+        
+        do {
+            // Save context to actually perform deletion
+            try context.save()
+            
+            // Operation finished. Indicate its completion to the closure.
+            completion(nil)
+        } catch {
+            // Operation failed. Indicate its completion to the closure.
+            completion(error)
+        }
     }
     
     /**
@@ -84,7 +178,7 @@ class NotesRepository: DataSource {
         }
         
         // Filter items that contain the string searched
-        items = unfilteredItems.filter { $0.note.localizedCaseInsensitiveContains(term) }
+        items = unfilteredItems.filter { $0.content?.localizedCaseInsensitiveContains(term) ?? false }
         
         // Call closure to indicate that operation has finished
         completion()

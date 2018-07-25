@@ -13,14 +13,6 @@ class NoteCell: UITableViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        formatter.dateStyle = .medium
-        
-        return formatter
-    }()
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -32,13 +24,13 @@ class NoteCell: UITableViewCell, ReusableView, NibLoadableView {
     }
     
     /**
-     * Populates the cell with contents of a NoteModel object.
+     * Populates the cell with contents of a Note object.
      *
-     * - parameter note: A NoteModel object to populate the cell with.
+     * - parameter note: A Note object to populate the cell with.
      */
-    public func populate(with note: NoteModel) {
-        noteLabel.text = note.note
-        dateLabel.text = dateFormatter.string(from: note.createdAt)
+    public func populate(with note: Note) {
+        noteLabel.text = note.content
+        dateLabel.text = note.formattedDate
     }
     
 }
