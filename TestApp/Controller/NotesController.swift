@@ -14,8 +14,6 @@ class NotesController: UIViewController {
     
     fileprivate let transition = ACCircleTransition()
     
-    
-    
     // MARK: LIFECYCLE
     
     override func viewDidLoad() {
@@ -42,6 +40,7 @@ class NotesController: UIViewController {
 extension NotesController {
     
     @IBAction func createNote(sender: UIButton) {
+        // Create and present the controller to create/edit a note
         guard let noteController = controller(for: .note, from: .main) as? NoteController else { return }
         noteController.transitioningDelegate = self
         noteController.modalPresentationStyle = .custom
@@ -92,7 +91,21 @@ extension NotesController {
         }
     }
     
+    /**
+     * Filters a list of NoteModel objects containing a certain term.
+     *
+     * - parameter text: The term used to filter the list of notes.
+     */
+    fileprivate func searchItems(with text: String) {
+        NotesRepository.shared.search(text) { [weak self] _ in
+            // Operation finished. Reload data.
+            self?.tableView.reloadData()
+        }
+    }
+    
 }
+
+// MARK: UITableViewDataSource
 
 extension NotesController: UITableViewDataSource {
     
@@ -111,6 +124,8 @@ extension NotesController: UITableViewDataSource {
     
 }
 
+// MARK: UITableViewDelegate
+
 extension NotesController: UITableViewDelegate {
     
     internal func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -119,13 +134,34 @@ extension NotesController: UITableViewDelegate {
     
 }
 
+// MARK: NoteControllerDelegate
+
 extension NotesController: NoteControllerDelegate {
     
     internal func didFinishCreatingNote() {
+        // Reload list of notes
         fetchNotes()
     }
     
 }
+
+// MARK: UISearchBarDelegate
+
+extension NotesController: UISearchBarDelegate {
+    
+    internal func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Dismiss keyboard
+        searchBar.resignFirstResponder()
+    }
+    
+    internal func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        // Process search request
+        searchItems(with: searchText)
+    }
+    
+}
+
+// MARK: UIViewControllerTransitioningDelegate
 
 extension NotesController: UIViewControllerTransitioningDelegate {
     

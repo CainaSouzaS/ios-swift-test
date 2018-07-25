@@ -56,9 +56,13 @@ extension NoteController {
      * Configure all UI elements
      */
     fileprivate func configureUI() {
-        // Configure add button
+        // Configure action buttons
         saveButton.layer.cornerRadius = saveButton.frame.width / 2
         closeButton.layer.cornerRadius = closeButton.frame.width / 2
+        
+        // Configure text view
+        contentTextView.layer.cornerRadius = 6
+        contentTextView.textContainerInset = UIEdgeInsets(top: 14, left: 10, bottom: 14, right: 10)
     }
     
     /*
